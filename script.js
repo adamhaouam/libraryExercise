@@ -2,6 +2,7 @@ const myLibrary = [];
 
 function Book(name) { // the constructor...
     this.name = name,
+    this.id = crypto.randomUUID();
     this.sayName = function() {
         console.log(this.name);
     };
@@ -18,6 +19,6 @@ addBookToLibrary("Book 1");
 addBookToLibrary("Book 2");
 
 for (x in myLibrary) {
-    //console.log(myLibrary[x].name);
+    console.log(myLibrary[x].id);
     myLibrary[x].sayName();
 }
