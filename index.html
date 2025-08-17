@@ -3,10 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<link rel="stylesheet" href="style.css">
+    <title>Library</title>
 </head>
 <body>
+<div class="container">
+<div class="grid">
+</div>
+<button class="newBook">New Book</button>
 
+<dialog>
+  <form class="newBookForm">
+<label for="title">Title:</label>
+<input id="title">
+<label for="author">Author:</label>
+<input id="author">
+<label for="pages">Pages:</label>
+<input type="tel" id="pages">
+<label for="read">Read:</label>
+<input type="checkbox" id="read">
+<div class="buttons">
+  <button class="close">Close</button>
+  <button class="save">Save</button>
+  </div>
+  </form>
+</dialog>
+
+</div>
     <script src="script.js"></script>
 </body>
 </html>

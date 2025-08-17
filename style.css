@@ -1,0 +1,85 @@
+:root {
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, figure, p, ol, ul, body {
+  margin: 0;
+}
+
+ol[role="list"], ul[role="list"] {
+  list-style: none;
+  padding-inline: 0;
+}
+
+h1, h2, h3, h4, h5 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+}
+
+* {
+box-sizing: border-box;
+}
+
+
+
+.container {
+width: 100vw;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+gap: 20px;
+}
+
+.grid {
+border: 8px solid brown;
+border-radius: 10px;
+background-color: orange;
+width: 500px;
+height: 500px;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+grid-auto-rows: 150px;
+gap: 15px;
+padding: 15px;
+}
+
+.book {
+background-color: teal;
+}
+
+.newBookForm {
+display: grid;
+grid-template-columns: 1fr 200px;
+gap: 10px;
+}
+
+.newBookForm input {
+justify-self: left;
+width: 100%;
+}
+
+#read {
+width: auto;
+}
+
+.newBookForm label {
+justify-self: right;
+}
+
+.buttons {
+display: flex;
+gap: 15px;
+justify-content: flex-end;
+grid-column: 1 / -1;
+}
+
+* {
+
+}
