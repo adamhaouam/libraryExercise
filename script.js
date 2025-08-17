@@ -37,58 +37,53 @@ function addBookToLibrary(title, author, pages, read) { //Add book to library ar
 }
 
 function updateShelf()  { //Update gridBox to match myLibrary array
-for (let x in myLibrary) { //Create books in grid
-const div = document.createElement("div");
-div.dataset.idNo = myLibrary[x].id;
-div.classList.add("book");
-div.textContent = myLibrary[x].info();
+    for (let x in myLibrary) { //Create books in grid
+        const div = document.createElement("div");
+        div.dataset.idNo = myLibrary[x].id;
+        div.classList.add("book");
+        div.textContent = myLibrary[x].info();
 
-const btn = document.createElement("button"); //Add remove button to each book
-btn.textContent = "Remove";
-btn.addEventListener("click", () => {
-console.log("Deleted!");
-//match id to array and remove
-deleteBook(div.dataset.idNo);
-btn.parentElement.remove();
-});
-div.appendChild(btn);
-gridBox.appendChild(div);
-}
+        const btn = document.createElement("button"); //Add remove button to each book
+        btn.textContent = "Remove";
+        btn.addEventListener("click", () => {
+            console.log("Deleted!");
+            //match id to array and remove
+            deleteBook(div.dataset.idNo);
+            btn.parentElement.remove();
+        });
+        div.appendChild(btn);
+        gridBox.appendChild(div);
+    }
 }
 
 function deleteBook(id) { //Delete book from myLibrary array with ID provided
-for (let x in myLibrary) {
-if (id == myLibrary[x].id) {
-myLibrary.splice(x, 1);
+    for (let x in myLibrary) {
+        if (id == myLibrary[x].id) {
+            myLibrary.splice(x, 1);
+        }
+    }
 }
-}
-}
-
 
 dialogClose.addEventListener("click", () => {
-event.preventDefault();
-dialog.close();
+    event.preventDefault();
+    dialog.close();
 });
 
 dialogSave.addEventListener("click", () => {
-event.preventDefault();
-addBookToLibrary(titleInput.value, authorInput.value, pageInput.value, readInput.value);
-gridBox.replaceChildren();
-updateShelf();
-dialog.close();
+    event.preventDefault();
+    addBookToLibrary(titleInput.value, authorInput.value, pageInput.value, readInput.value);
+    gridBox.replaceChildren();
+    updateShelf();
+    dialog.close();
 });
-
-
 
 newBook.addEventListener("click", () => {
-dialog.showModal();
-titleInput.value = "";
-authorInput.value = "";
-pageInput.value = "";
-readInput.checked = false;
+    dialog.showModal();
+    titleInput.value = "";
+    authorInput.value = "";
+    pageInput.value = "";
+    readInput.checked = false;
 });
-
-
 
 addBookToLibrary("Book 1", "me", "20", true);
 addBookToLibrary("Book 2", "you", "19", false);
