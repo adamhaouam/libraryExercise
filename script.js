@@ -25,6 +25,7 @@ function Book(title,author, pages, read) { // Book Constructor
     this.title = title,
     this.author = author;
     this.pages = pages,
+    this.read = read;
     this.id = crypto.randomUUID(),
     this.info = function() {
         if (this.read == false) {
@@ -100,7 +101,7 @@ dialogClose.addEventListener("click", () => {
 dialogSave.addEventListener("click", () => {
     event.preventDefault();
     console.log(readInput.value)
-    addBookToLibrary(titleInput.value, authorInput.value, pageInput.value, readInput.value);
+    addBookToLibrary(titleInput.value, authorInput.value, pageInput.value, readInput.checked);
     gridBox.replaceChildren();
     updateShelf();
     dialog.close();
