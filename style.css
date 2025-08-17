@@ -38,9 +38,9 @@ box-sizing: border-box;
 }
 
 .grid {
-    border: 8px solid brown;
+    border: 8px solid rgb(97, 58, 21);
     border-radius: 10px;
-    background-color: orange;
+    background-color: rgb(230, 176, 127);
     width: 500px;
     height: 500px;
     display: grid;
@@ -51,9 +51,37 @@ box-sizing: border-box;
 }
 
 .book {
-    background-color: teal;
-
+    background-color: rgb(67, 112, 163);
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    align-items: center;
+    justify-content: space-between;
 }
+
+.book h1 {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.book h2 {
+    font-style: italic;
+}
+
+.readLabel {
+    background-color: rgb(46, 163, 46);
+    color: white;
+    border: 2px solid rgb(30, 72, 119);
+    padding: 1px 5px;
+}
+
+.notReadLabel {
+    background-color: rgb(209, 32, 32);
+    padding: 1px 5px;
+    border: 2px solid rgb(30, 72, 119);
+}
+
+
 
 .newBookForm {
     display: grid;
@@ -81,6 +109,3 @@ box-sizing: border-box;
     grid-column: 1 / -1;
 }
 
-* {
-
-}

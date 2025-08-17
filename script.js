@@ -41,7 +41,30 @@ function updateShelf()  { //Update gridBox to match myLibrary array
         const div = document.createElement("div");
         div.dataset.idNo = myLibrary[x].id;
         div.classList.add("book");
-        div.textContent = myLibrary[x].info();
+        //div.textContent = myLibrary[x].info();
+
+        const titleDisplay = document.createElement("h1");
+        titleDisplay.textContent = myLibrary[x].title;
+        div.appendChild(titleDisplay);
+
+        const authorDisplay = document.createElement("h2");
+        authorDisplay.textContent = `by ${myLibrary[x].author}`;
+        div.appendChild(authorDisplay);
+
+        const pagesDisplay = document.createElement("h3");
+        pagesDisplay.textContent = `${myLibrary[x].pages} pages`;
+        div.appendChild(pagesDisplay);
+
+        const readDisplay = document.createElement("h4");
+        if (myLibrary[x].read == true) {
+            readDisplay.textContent = "Read";
+            readDisplay.classList.add("readLabel");
+        }
+        else {
+            readDisplay.textContent = "Not Read";
+            readDisplay.classList.add("notReadLabel");
+        }
+        div.appendChild(readDisplay);
 
         const btn = document.createElement("button"); //Add remove button to each book
         btn.textContent = "Remove";
