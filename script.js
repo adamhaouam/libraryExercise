@@ -75,7 +75,7 @@ function updateShelf()  { //Update gridBox to match myLibrary array
         const btn = document.createElement("button"); //Add remove button to each book
         btn.textContent = "Remove";
         btn.addEventListener("click", () => {
-            console.log("Deleted!");
+            //console.log("Deleted!");
             //match id to array and remove
             deleteBook(div.dataset.idNo);
             btn.parentElement.remove();
@@ -100,7 +100,6 @@ dialogClose.addEventListener("click", () => {
 
 dialogSave.addEventListener("click", () => {
     event.preventDefault();
-    console.log(readInput.value)
     addBookToLibrary(titleInput.value, authorInput.value, pageInput.value, readInput.checked);
     gridBox.replaceChildren();
     updateShelf();
