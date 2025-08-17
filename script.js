@@ -16,10 +16,15 @@ function Book(title,author, pages, read) { // Book Constructor
     if (!new.target) {
         throw Error("You must use the 'new' operator to call the constructor");
     }
+        if (read == "on") {
+            this.read = true;
+        }
+        else {
+            this.read = false;
+        };
     this.title = title,
     this.author = author;
     this.pages = pages,
-    this.read = read;
     this.id = crypto.randomUUID(),
     this.info = function() {
         if (this.read == false) {
@@ -94,6 +99,7 @@ dialogClose.addEventListener("click", () => {
 
 dialogSave.addEventListener("click", () => {
     event.preventDefault();
+    console.log(readInput.value)
     addBookToLibrary(titleInput.value, authorInput.value, pageInput.value, readInput.value);
     gridBox.replaceChildren();
     updateShelf();
