@@ -27,15 +27,12 @@ function Book(title,author, pages, read) { // Book Constructor
     this.pages = pages,
     this.read = read;
     this.id = crypto.randomUUID(),
-    this.info = function() {
-        if (this.read == false) {
-            return (`${title} by ${author}, ${pages} pages, not read`);
-        }
-        else {
-            return (`${title} by ${author}, ${pages} pages, read`);
-        }
+    this.toggleRead = function() {
+        this.read = !this.read;
     };
 }
+
+
 
 function addBookToLibrary(title, author, pages, read) { //Add book to library array
     let book = new Book(title, author, pages, read);
@@ -43,6 +40,7 @@ function addBookToLibrary(title, author, pages, read) { //Add book to library ar
 }
 
 function updateShelf()  { //Update gridBox to match myLibrary array
+    gridBox.replaceChildren();
     for (let x in myLibrary) { //Create books in grid
         const div = document.createElement("div");
         div.dataset.idNo = myLibrary[x].id;
@@ -72,6 +70,10 @@ function updateShelf()  { //Update gridBox to match myLibrary array
         }
         div.appendChild(readDisplay);
 
+        readDisplay.addEventListener("click", () => {
+            flipRead(div.dataset.idNo);
+        });
+
         const btn = document.createElement("button"); //Add remove button to each book
         btn.textContent = "Remove";
         btn.addEventListener("click", () => {
@@ -83,6 +85,15 @@ function updateShelf()  { //Update gridBox to match myLibrary array
         div.appendChild(btn);
         gridBox.appendChild(div);
     }
+}
+
+function flipRead(id) { //Toggle Read from myLibrary array wtih ID provided
+    for (let x in myLibrary) {
+        if (id == myLibrary[x].id) {
+            myLibrary[x].toggleRead();
+        }
+    }
+    updateShelf();
 }
 
 function deleteBook(id) { //Delete book from myLibrary array with ID provided
@@ -101,7 +112,6 @@ dialogClose.addEventListener("click", () => {
 dialogSave.addEventListener("click", () => {
     event.preventDefault();
     addBookToLibrary(titleInput.value, authorInput.value, pageInput.value, readInput.checked);
-    gridBox.replaceChildren();
     updateShelf();
     dialog.close();
 });
