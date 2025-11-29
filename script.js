@@ -12,24 +12,18 @@ const newBook = document.querySelector(".newBook");
 
 const myLibrary = [];
 
-function Book(title,author, pages, read) { // Book Constructor
-    if (!new.target) {
-        throw Error("You must use the 'new' operator to call the constructor");
+class Book { // Book Constructor
+
+    constructor(title,author, pages, read)  {
+        this.title = title,
+        this.author = author;
+        this.pages = pages,
+        this.read = read;
+        this.id = crypto.randomUUID();
     }
-        if (read == "on") {
-            this.read = true;
-        }
-        else {
-            this.read = false;
-        };
-    this.title = title,
-    this.author = author;
-    this.pages = pages,
-    this.read = read;
-    this.id = crypto.randomUUID(),
-    this.toggleRead = function() {
-        this.read = !this.read;
-    };
+
+    toggleRead = () => this.read = !this.read;
+
 }
 
 
